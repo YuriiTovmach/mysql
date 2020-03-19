@@ -75,18 +75,39 @@
 
 //_________________________________________________________________________________________
 
-$link = mysqli_connect('127.0.0.1', 'root', '', 'site_2');
-//    $MySQLSelectedDB = mysqli_select_db('site_2', $MySQLConnection);
-//    mysqli_query('SET NAMES utf8');
+$link = mysqli_connect('127.0.0.1', 'root', '', 'oc_store');
 
-    $sql = mysqli_query($link, 'SELECT * FROM pages');
+
+    $sql = mysqli_query($link, 'SELECT * FROM oc_product');
+
     while($result = mysqli_fetch_assoc($sql))
     {
         foreach($result as $k => $val)
         {
-            echo $k . "[" . $val . "] = " . $val;
+//            echo $k  . "[" . $val . "] = " . $val . "<br>";
+            echo $k . " = " . $val . "<br>";
         }
         echo "<br>";
+
+
     }
 
+
+
  mysqli_close($link);
+
+
+
+//---------------------------------------------------------------------------------
+//function field_name() {
+//    $jml = $this->num_field();
+//    for($i = 0; $i < $jml; $i++) {
+//       $arr_field[] = mysqli_field_name($this->hasil, $i);
+//    }
+//    return $arr_field;
+// }
+//
+// field_name();
+
+//echo mysqli_field_name($result, 0) . "\n";
+//            echo mysqli_field_name($result, 2);

@@ -1,10 +1,10 @@
-<?php
-
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$database = 'site_2';
-
+//<?php
+//
+//$host = 'localhost';
+//$user = 'root';
+//$password = '';
+//$database = 'site_2';
+//
 
 
 //$connection = mysqli_connect('127.0.0.1', 'root', '', 'site_2');

@@ -41,25 +41,25 @@
 //___________________________________________________________
 
 //подключаем скрипт
-require_once 'conection.php';
-//подключаем сервер mysql
-$link = mysqli_connect($host, $user, $password, $database) or die("Ошибка " . mysqli_error($link));
-
-         $sql = "SELECT * FROM pages";
-         $result = mysqli_query($link, $sql) or die("Ошибка " . mysqli_error($link));
-
-
-         while ($row = mysqli_fetch_assoc($result)){
-            $id = $row['id'];
-            $title = $row['title'];
-            $url = $row['url'];
-            $text = $row['text'];
-
-            echo "<ul>";
-                echo "<ol>";
-                    echo "<div>$text</div>";
-                echo "</ol>";
-            echo "</ul>";
+//require_once 'conection.php';
+////подключаем сервер mysql
+//$link = mysqli_connect($host, $user, $password, $database) or die("Ошибка " . mysqli_error($link));
+//
+//         $sql = "SELECT * FROM pages";
+//         $result = mysqli_query($link, $sql) or die("Ошибка " . mysqli_error($link));
+//
+//
+//         while ($row = mysqli_fetch_assoc($result)){
+//            $id = $row['id'];
+//            $title = $row['title'];
+//            $url = $row['url'];
+//            $text = $row['text'];
+//
+//            echo "<ul>";
+//                echo "<ol>";
+//                    echo "<div>$text</div>";
+//                echo "</ol>";
+//            echo "</ul>";
 
 
 //            echo "<table>";
@@ -69,8 +69,24 @@ $link = mysqli_connect($host, $user, $password, $database) or die("Ошибка 
 //                    echo "</td>";
 //                 echo "</tr>";
 //            echo "</table>";
-            }
+//            }
 //закрываем соединение
-mysqli_close($link);
+//mysqli_close($link);
 
 //_________________________________________________________________________________________
+
+$link = mysqli_connect('127.0.0.1', 'root', '', 'site_2');
+//    $MySQLSelectedDB = mysqli_select_db('site_2', $MySQLConnection);
+//    mysqli_query('SET NAMES utf8');
+
+    $sql = mysqli_query($link, 'SELECT * FROM pages');
+    while($result = mysqli_fetch_assoc($sql))
+    {
+        foreach($result as $k => $val)
+        {
+            echo $k . "[" . $val . "] = " . $val;
+        }
+        echo "<br>";
+    }
+
+ mysqli_close($link);
